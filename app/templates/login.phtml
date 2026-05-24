@@ -1,0 +1,25 @@
+<?php require './app/templates/header.phtml'; ?>
+
+<div class="mt-5 w-25 mx-auto">
+    <h2 class="mb-3">Iniciar sesión</h2>
+    <form method="POST" action="?action=auth">
+        <div class="form-group mb-2">
+            <label for="usuario">Email</label>
+            <input type="text" required class="form-control" id="usuario" name="usuario">
+        </div>
+        <div class="form-group mb-2">
+            <label for="password">Contraseña</label>
+            <input type="password" required class="form-control" id="password" name="password">
+        </div>
+
+        <?php if ($error): ?>
+            <div class="alert alert-danger" role="alert">
+                <?= htmlspecialchars($error) ?>
+            </div>
+        <?php endif; ?>
+
+        <button type="submit" class="btn btn-warning mt-2 w-100">Entrar</button>
+    </form>
+</div>
+
+<?php require './app/templates/footer.phtml'; ?>

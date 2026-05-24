@@ -1,0 +1,35 @@
+<?php require_once './app/templates/header.phtml' ?>
+<h1>Catálogo de Películas</h1>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Director</th>
+            <th>Estado</th>
+            <th>Imagen</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($list as $item): ?>
+        <tr>
+            <td><?= $item->id_pelicula ?></td>
+            <td><?= htmlspecialchars($item->titulo) ?></td>
+            <td><?= htmlspecialchars($item->director) ?></td>
+            <td><?= $item->alquilada ? '🔴 Alquilada' : '🟢 Disponible' ?></td>
+            <td>
+                <?php if (!empty($item->imagen)): ?>
+                    <img src="<?= BASE_URL . $item->imagen ?>" alt="Imagen de la película" width="80" height="120">
+                <?php else: ?>
+                    Sin imagen
+                <?php endif; ?>
+            </td>
+            <td><a href="?action=pelicula/<?= $item->id_pelicula ?>" class="btn btn-success">Ver</a></td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+
+<?php require_once './app/templates/footer.phtml' ?>

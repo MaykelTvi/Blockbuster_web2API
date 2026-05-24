@@ -1,0 +1,25 @@
+<?php require_once './app/templates/header.phtml' ?>
+<h1>Alquileres activos</h1>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Película</th>
+            <th>Usuario</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($list as $item): ?>
+        <tr>
+            <td><?= $item->id_alquiler ?></td>
+            <td><?= htmlspecialchars($item->titulo) ?></td>
+            <td><?= htmlspecialchars($item->usuario) ?></td>
+            <td><?= $item->fecha_alquiler ?></td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+
+<?php require_once './app/templates/footer.phtml' ?>

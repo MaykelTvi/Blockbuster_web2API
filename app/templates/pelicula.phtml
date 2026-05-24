@@ -1,0 +1,20 @@
+<?php require './app/templates/header.phtml' ?>
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-dark"><span class="h3">Título: <?= htmlspecialchars($pelicula->titulo) ?></span></li>
+    <li class="list-group-item list-group-item-dark"><span class="h3">Director: <?= htmlspecialchars($pelicula->director) ?></span></li>
+    <li class="list-group-item list-group-item-dark"><span class="h3">Estado: <?= $pelicula->alquilada ? '🔴 Alquilada' : '🟢 Disponible' ?></span></li>
+    <li class="list-group-item list-group-item-dark">
+        <span class="h3">Imagen:</span>
+        <?php if (!empty($pelicula->imagen)): ?>
+            <img src="<?= BASE_URL . $pelicula->imagen ?>" alt="Imagen de la película" width="200" height="300">
+        <?php else: ?>
+            Sin imagen disponible
+        <?php endif; ?>
+    </li>
+</ul>
+
+<a href="?action=home" class="btn btn-success mt-3">Volver al inicio</a>
+<a href="?action=peliculas" class="btn btn-warning mt-3">Ver todas las películas</a>
+
+<?php require './app/templates/footer.phtml' ?>

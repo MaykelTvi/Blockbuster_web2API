@@ -1,0 +1,15 @@
+<?php require './app/templates/header.phtml'; ?>
+
+<h1>Editar Usuario</h1>
+<form method="post" action="?action=actualizarUsuario/<?= $idUsuario ?>">
+    <label>Email / Usuario</label>
+    <input type="text" value="<?= htmlspecialchars($usuario->usuario) ?>" name="usuario" class="form-control mb-2" required>
+
+    <label>¿Es administrador?</label><br>
+    <input type="checkbox" name="admin" value="1" <?php if($usuario->admin == 1) echo "checked"; ?>> Sí<br><br>
+
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <a href="?action=usuarios" class="btn btn-secondary">Cancelar</a>
+</form>
+
+<?php require './app/templates/footer.phtml'; ?>

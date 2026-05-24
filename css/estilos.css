@@ -1,0 +1,28 @@
+body {
+    background-color: #1a1a2e;
+    color: #eee;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin: 1.5rem 0 1rem;
+    color: #ffc107;
+}
+
+.btn-warning {
+    color: #000;
+    font-weight: 500;
+}
+
+table {
+    margin-top: 1rem;
+}
+
+img {
+    border-radius: 4px;
+    object-fit: cover;
+}

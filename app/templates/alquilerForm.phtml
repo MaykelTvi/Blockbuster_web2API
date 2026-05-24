@@ -1,0 +1,29 @@
+<?php require_once './app/templates/header.phtml' ?>
+<h1>Nuevo Alquiler</h1>
+
+<form method="post" action="?action=agregarAlquiler" class="mb-4">
+
+    <label class="h5">Película disponible</label>
+    <select name="id_pelicula" class="form-control mb-2" required>
+        <option value="">-- Seleccionar película --</option>
+        <?php foreach($peliculas as $p): ?>
+            <option value="<?= $p->id_pelicula ?>"><?= htmlspecialchars($p->titulo) ?></option>
+        <?php endforeach ?>
+    </select>
+
+    <label class="h5">Usuario</label>
+    <select name="id_usuario" class="form-control mb-2" required>
+        <option value="">-- Seleccionar usuario --</option>
+        <?php foreach($usuarios as $u): ?>
+            <option value="<?= $u->id_usuario ?>"><?= htmlspecialchars($u->usuario) ?></option>
+        <?php endforeach ?>
+    </select>
+
+    <label class="h5">Fecha de alquiler</label>
+    <input type="date" name="fecha_alquiler" class="form-control mb-2" value="<?= date('Y-m-d') ?>" required>
+
+    <button type="submit" class="btn btn-success">Registrar Alquiler</button>
+    <a href="?action=alquileres" class="btn btn-secondary">Cancelar</a>
+</form>
+
+<?php require_once './app/templates/footer.phtml' ?>

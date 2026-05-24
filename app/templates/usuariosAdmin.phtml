@@ -1,0 +1,40 @@
+<?php require_once './app/templates/header.phtml'; ?>
+<h1>Administrar Usuarios</h1>
+
+<form method="post" action="?action=agregarUsuario" class="mb-4">
+    <label class="h5">Email / Usuario</label>
+    <input type="text" name="usuario" class="form-control mb-2" required>
+
+    <label class="h5">Contraseña</label>
+    <input type="password" name="password" class="form-control mb-2" required>
+
+    <label class="h5">¿Es administrador?</label><br>
+    <input type="checkbox" name="admin" value="1"> Sí<br><br>
+
+    <button type="submit" class="btn btn-success">Agregar Usuario</button>
+</form>
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Admin</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach($list as $item): ?>
+        <tr>
+            <td><?= $item->id_usuario ?></td>
+            <td><?= htmlspecialchars($item->usuario) ?></td>
+            <td><?= $item->admin ? '✅ Sí' : '❌ No' ?></td>
+            <td><a href="?action=eliminarUsuario/<?= $item->id_usuario ?>" class="btn btn-danger" onclick="return confirm('¿Eliminar usuario?')">Borrar</a></td>
+            <td><a href="?action=editarUsuario/<?= $item->id_usuario ?>" class="btn btn-warning">Editar</a></td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
+
+<?php require_once './app/templates/footer.phtml'; ?>
