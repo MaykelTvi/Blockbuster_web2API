@@ -19,5 +19,11 @@ La base de datos está compuesta por tres tablas:
 Un usuario puede tener varios alquileres, pero una película solo puede estar
 alquilada por un único usuario a la vez (relación 1 a N entre Usuarios y Alquileres).
 
+Usuario Admin:
+admin@blockbuster.com | admin
+
+Usuario:
+cliente@gmail.com | user
+
 ## DER
 ![DER](DER.png)
