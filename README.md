@@ -1,29 +1,79 @@
-# Blockbuster Digital
-## Integrantes: Maykel Tvihaug (maytvi33@email.com)
+# Blockbuster_web2API
+**Integrante: Maykel Tvihaug**
 
-## Temática del TPE
-Videoclub digital estilo Blockbuster para catalogo de alquileres de películas.
+Rutas para peliculas
 
-## Descripción
-Sistema web que permite visualizar el catálogo de películas disponibles.
-Solo el administrador puede agregar, modificar o eliminar películas del catálogo.
-Los usuarios pueden explorar las películas.
+Listar todas las peliculas
+Metodo: GET
+Ruta completa: http://localhost/Blockbuster_web2API/api/peliculas
 
-## Modelo de datos
-La base de datos está compuesta por tres tablas:
+Query Params Opcionales:
+sort: http://localhost/Blockbuster_web2API/api/peliculas?sort=titulo
+order: http://localhost/Blockbuster_web2API/api/peliculas?order=DESC
+ambos: http://localhost/Blockbuster_web2API/api/peliculas?sort=director&order=DESC
 
-- **Usuarios**: almacena los datos de acceso y el rol de cada usuario (admin o cliente).
-- **Películas**: contiene el catálogo con título, director.
-- **Alquileres**: conecta usuarios con películas, registrando la fecha del alquiler.
+Obtener una pelicula por su ID
+Metodo: GET
+Ruta completa: http://localhost/Blockbuster_web2API/api/peliculas/:ID
 
-Un usuario puede tener varios alquileres, pero una película solo puede estar
-alquilada por un único usuario a la vez (relación 1 a N entre Usuarios y Alquileres).
+Agregar una nueva pelicula
+Metodo: POST
+Ruta completa: http://localhost/Blockbuster_web2API/api/pelicula
+{
+    "titulo": "Titulo",
+    "director": "Director",
+    "id_genero": 1,
+    "alquilada": (0 o 1)
+}
 
-Usuario Admin:
-admin@blockbuster.com | admin
+Modificar una pelicula existente
+Metodo: PUT
+Ruta completa: http://localhost/Blockbuster_web2API/api/pelicula/:ID
+{
+    "titulo": "Nuevo Titulo",
+    "director": "Nuevo Director",
+    "id_genero": 1,
+    "alquilada": (0 o 1)
+}
 
-Usuario:
-cliente@gmail.com | user
+Eliminar una pelicula
+Metodo: DELETE
+Ruta completa: http://localhost/Blockbuster_web2API/api/pelicula/:ID
 
-## DER
-![DER](DER.png)
+
+Rutas para alquileres
+
+Listar todos los alquileres
+Metodo: GET
+Ruta completa: http://localhost/Blockbuster_web2API/api/alquileres
+
+Query Params Opcionales:
+sort: http://localhost/Blockbuster_web2API/api/alquileres?sort=fecha_alquiler
+order: http://localhost/Blockbuster_web2API/api/alquileres?order=DESC
+ambos: http://localhost/Blockbuster_web2API/api/alquileres?sort=id_pelicula&order=ASC
+
+Obtener un alquiler por su ID
+Metodo: GET
+Ruta completa: http://localhost/Blockbuster_web2API/api/alquileres/:ID
+
+Agregar un nuevo alquiler
+Metodo: POST
+Ruta completa: http://localhost/Blockbuster_web2API/api/alquiler
+{
+    "id_pelicula": 1,
+    "id_usuario": 2,
+    "fecha_alquiler": "2026-01-01"
+}
+
+Modificar un alquiler existente
+Metodo: PUT
+Ruta completa: http://localhost/Blockbuster_web2API/api/alquiler/:ID
+{
+    "id_pelicula": 1,
+    "id_usuario": 2,
+    "fecha_alquiler": "2026-01-01"
+}
+
+Eliminar un alquiler
+Metodo: DELETE
+Ruta completa: http://localhost/Blockbuster_web2API/api/alquiler/:ID
